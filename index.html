@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人首頁 | 軟性新野獸派風格</title>
+    <title>個人首頁 | 學習歷程展示</title>
     <!-- 引入特殊字體以增強野獸派風格 -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&family=Noto+Sans+TC:wght@400;700;900&display=swap"
+        rel="stylesheet">
     <style>
         :root {
-            /* 軟性新野獸派的核心配色：柔和（低飽和）的背景，搭配高對比度的黑線框 */
-            --bg-color: #fcf9f2;      /* 溫暖的米白色背景 */
-            --text-color: #1a1a1a;    /* 近黑色字體 */
-            --border-color: #1a1a1a;  /* 純黑邊框與陰影 */
-            
-            /* 柔和的點綴色 (Pastel Colors) */
-            --accent-pink: #fbcfe8;   /* 柔軟粉紅 */
-            --accent-yellow: #fde047; /* 奶油黃 */
-            --accent-blue: #bfdbfe;   /* 嬰兒藍 */
-            --accent-green: #bbf7d0;  /* 薄荷綠 */
-            --accent-purple: #e9d5ff; /* 薰衣草紫 */
+            --bg-color: #fcf9f2;
+            /* 溫暖的米白色背景 */
+            --text-color: #1a1a1a;
+            /* 近黑色字體 */
+            --border-color: #1a1a1a;
+            /* 純黑邊框與陰影 */
 
-            /* 形狀定義：保留粗曠感，但使用圓角柔化視覺 */
+            --accent-pink: #fbcfe8;
+            /* 柔軟粉紅 */
+            --accent-yellow: #fde047;
+            /* 奶油黃 */
+            --accent-blue: #bfdbfe;
+            /* 嬰兒藍 */
+            --accent-green: #bbf7d0;
+            /* 薄荷綠 */
+            --accent-purple: #e9d5ff;
+            /* 薰衣草紫 */
+            --accent-orange: #fed7aa;
+            /* 柔和橘 */
+
             --border-width: 3px;
             --border-radius: 16px;
             --btn-radius: 8px;
@@ -33,6 +43,10 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Space Grotesk', 'Noto Sans TC', sans-serif;
             background-color: var(--bg-color);
@@ -41,9 +55,7 @@
             overflow-x: hidden;
         }
 
-        /* ----- 核心樣式組件 ----- */
-        
-        /* 軟性新野獸派方塊 */
+        /* 核心組件 */
         .neo-box {
             border: var(--border-width) solid var(--border-color);
             border-radius: var(--border-radius);
@@ -52,7 +64,6 @@
             transition: all 0.2s ease-in-out;
         }
 
-        /* 按鈕樣式 */
         .neo-button {
             display: inline-flex;
             align-items: center;
@@ -81,30 +92,53 @@
         }
 
         /* 顏色修改器 */
-        .bg-pink { background-color: var(--accent-pink); }
-        .bg-yellow { background-color: var(--accent-yellow); }
-        .bg-blue { background-color: var(--accent-blue); }
-        .bg-green { background-color: var(--accent-green); }
-        .bg-purple { background-color: var(--accent-purple); }
+        .bg-pink {
+            background-color: var(--accent-pink);
+        }
 
-        /* ----- 版面佈局 ----- */
-        
+        .bg-yellow {
+            background-color: var(--accent-yellow);
+        }
+
+        .bg-blue {
+            background-color: var(--accent-blue);
+        }
+
+        .bg-green {
+            background-color: var(--accent-green);
+        }
+
+        .bg-purple {
+            background-color: var(--accent-purple);
+        }
+
+        .bg-orange {
+            background-color: var(--accent-orange);
+        }
+
+        /* 版面佈局 */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* 頁首 Header */
+        /* Header */
         header {
             padding: 24px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-color);
+            z-index: 100;
+            border-bottom: var(--border-width) solid var(--border-color);
+            margin-bottom: 40px;
         }
 
         .logo {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             font-weight: 900;
             text-decoration: none;
             color: var(--text-color);
@@ -118,10 +152,10 @@
             font-weight: 800;
             text-decoration: none;
             color: var(--text-color);
-            margin-left: 32px;
+            margin-left: 24px;
             position: relative;
         }
-        
+
         nav a::after {
             content: '';
             position: absolute;
@@ -140,142 +174,18 @@
             transform-origin: left;
         }
 
-        /* 主視覺區塊 Hero */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 100px 0 120px;
-            gap: 40px;
-        }
-
-        .hero-content {
-            flex: 1;
-            z-index: 10;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(3rem, 6vw, 5rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            letter-spacing: -0.03em;
-        }
-
-        .text-outline {
-            color: var(--bg-color);
-            text-shadow: 
-                -2px -2px 0 var(--border-color),
-                 2px -2px 0 var(--border-color),
-                -2px  2px 0 var(--border-color),
-                 2px  2px 0 var(--border-color),
-                 4px  4px 0 var(--border-color);
-        }
-
-        .highlight-bg {
-            background: linear-gradient(to top, var(--accent-yellow) 40%, transparent 40%);
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 40px;
-            max-width: 500px;
-            color: #444;
-        }
-
-        .hero-visual {
-            flex: 1;
-            position: relative;
-            height: 450px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* 主視覺裝飾幾何 */
-        .shape {
-            position: absolute;
-            border: var(--border-width) solid var(--border-color);
-            box-shadow: 8px 8px 0px var(--border-color);
-        }
-
-        .shape-main {
-            width: 280px;
-            height: 360px;
-            border-radius: 40px 120px 40px 120px;
-            z-index: 2;
-            background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, var(--border-color) 10px, var(--border-color) 13px);
-            background-color: var(--accent-blue);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .shape-circle {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            top: 20px;
-            right: 10%;
-            z-index: 1;
-            animation: float 8s ease-in-out infinite reverse;
-        }
-
-        .shape-star {
-            width: 100px;
-            height: 100px;
-            bottom: 40px;
-            left: 10%;
-            z-index: 3;
-            transform: rotate(15deg);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            animation: pop 4s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(3deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
-
-        @keyframes pop {
-            0%, 100% { transform: scale(1) rotate(15deg); }
-            50% { transform: scale(1.1) rotate(25deg); }
-        }
-
-        /* 關於我標籤 */
-        .pill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 32px;
-        }
-        
-        .pill {
-            padding: 6px 16px;
-            border: 2px solid var(--border-color);
-            border-radius: 40px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            background-color: #fff;
-        }
-
-        /* 專案區塊 */
-        .projects {
+        /* Section 共用 */
+        section {
             padding: 80px 0;
-            border-top: var(--border-width) solid var(--border-color);
-            background-color: #fff;
         }
 
         .section-header {
-            margin-bottom: 60px;
+            margin-bottom: 48px;
+            text-align: center;
         }
 
         .section-title {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 900;
             display: inline-block;
             position: relative;
@@ -288,291 +198,562 @@
             bottom: 4px;
             width: calc(100% + 20px);
             height: 16px;
-            background-color: var(--accent-green);
             z-index: -1;
             border: 2px solid var(--border-color);
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        /* 1. 基本資料 Hero */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px 0 100px;
             gap: 40px;
         }
 
-        .card {
+        .hero-content {
+            flex: 1;
+            z-index: 10;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.03em;
+        }
+
+        .text-outline {
+            color: var(--bg-color);
+            text-shadow:
+                -2px -2px 0 var(--border-color),
+                2px -2px 0 var(--border-color),
+                -2px 2px 0 var(--border-color),
+                2px 2px 0 var(--border-color),
+                4px 4px 0 var(--border-color);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 32px;
+            max-width: 500px;
+            color: #444;
+        }
+
+        .info-list {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .info-list li {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: 2px 2px 0px var(--border-color);
+        }
+
+        .hero-visual {
+            flex: 1;
+            position: relative;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 裝飾大頭貼 */
+        .profile-pic {
+            width: 300px;
+            height: 300px;
+            border: var(--border-width) solid var(--border-color);
+            border-radius: 30px 100px 60px 120px;
+            background-color: var(--accent-pink);
+            box-shadow: 12px 12px 0px var(--border-color);
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .profile-pic::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(0, 0, 0, 0.05) 15px, rgba(0, 0, 0, 0.05) 20px);
+        }
+
+        .shape-star {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            top: 20px;
+            right: 10%;
+            z-index: 3;
+            transform: rotate(15deg);
+            border: var(--border-width) solid var(--border-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            background-color: var(--accent-yellow);
+            box-shadow: 4px 4px 0px var(--border-color);
+            animation: pop 4s infinite;
+        }
+
+        /* 2. 歷年成績 */
+        .grades-table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            border: var(--border-width) solid var(--border-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--border-color);
+            background-color: #fff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th,
+        td {
+            padding: 20px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        th {
+            font-size: 1.2rem;
+            font-weight: 900;
+            background-color: var(--accent-blue);
+            border-bottom: var(--border-width) solid var(--border-color);
+            white-space: nowrap;
+        }
+
+        th:not(:last-child),
+        td:not(:last-child) {
+            border-right: 2px solid var(--border-color);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f8fafc;
+        }
+
+        tr:hover td {
+            background-color: var(--accent-yellow);
+            transition: background-color 0.2s;
+        }
+
+        .grade-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border: 2px solid var(--border-color);
+            border-radius: 20px;
+            font-weight: 800;
+            background-color: var(--bg-color);
+            box-shadow: 2px 2px 0px var(--border-color);
+        }
+
+        /* 3. 興趣及榮譽 */
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .card-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .honor-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .honor-year {
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: var(--text-color);
+            background-color: var(--accent-green);
+            padding: 8px 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 3px 3px 0px var(--border-color);
+            transform: rotate(-3deg);
+        }
+
+        .honor-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .interests-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-content: flex-start;
+        }
+
+        .interest-tag {
+            font-size: 1.2rem;
+            font-weight: 800;
+            padding: 12px 24px;
+            border: var(--border-width) solid var(--border-color);
+            border-radius: 30px;
+            box-shadow: 4px 4px 0px var(--border-color);
+            transition: transform 0.2s;
+            cursor: default;
+        }
+
+        .interest-tag:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        /* 4. 學習歷程檔案 */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
             padding: 24px;
             display: flex;
             flex-direction: column;
+            background-color: #fff;
         }
 
-        .card:hover {
+        .project-card:hover {
             transform: translateY(-8px);
-            box-shadow: 12px 12px 0px var(--border-color);
+            box-shadow: 10px 10px 0px var(--border-color);
         }
 
-        .card-img-placeholder {
+        .project-img {
             width: 100%;
-            height: 220px;
+            height: 200px;
             border: var(--border-width) solid var(--border-color);
             border-radius: var(--btn-radius);
             margin-bottom: 24px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 4rem;
+            font-size: 3.5rem;
         }
 
-        .card h3 {
-            font-size: 1.8rem;
-            font-weight: 800;
+        .project-card h3 {
+            font-size: 1.5rem;
+            font-weight: 900;
             margin-bottom: 12px;
         }
 
-        .card p {
-            font-size: 1.1rem;
-            margin-bottom: 32px;
+        .project-card p {
+            font-size: 1rem;
+            margin-bottom: 24px;
             flex-grow: 1;
             color: #333;
+            font-weight: 600;
         }
 
-        /* 跑馬燈特效 */
-        .marquee-wrapper {
-            background-color: var(--accent-yellow);
-            border-top: var(--border-width) solid var(--border-color);
-            border-bottom: var(--border-width) solid var(--border-color);
-            padding: 16px 0;
-            overflow: hidden;
+        .project-tags {
             display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
         }
 
-        .marquee {
-            white-space: nowrap;
-            font-size: 1.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            animation: scroll 20s linear infinite;
-        }
-
-        .marquee span {
-            margin: 0 20px;
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* 頁尾 Footer */
-        footer {
-            padding: 80px 0 60px;
-            background-color: var(--accent-pink);
-            text-align: center;
-        }
-
-        .footer-content h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 900;
-            margin-bottom: 40px;
-            line-height: 1.2;
-        }
-
-        .cta-button {
-            font-size: 1.5rem;
-            padding: 20px 48px;
-            border-radius: 50px;
-        }
-
-        .social-links {
-            margin-top: 60px;
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-        }
-
-        .social-links a {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: var(--text-color);
-            border: var(--border-width) solid var(--border-color);
-            box-shadow: 4px 4px 0px var(--border-color);
-            background-color: #fff;
-            transition: all 0.2s ease;
-        }
-
-        .social-links a:hover {
-            transform: translateY(-4px) rotate(10deg);
-            box-shadow: 6px 6px 0px var(--border-color);
-        }
-
-        .copyright {
-            margin-top: 60px;
+        .ptag {
+            font-size: 0.85rem;
             font-weight: 700;
-            padding-top: 30px;
-            border-top: 2px dashed var(--border-color);
+            padding: 4px 10px;
+            border: 2px solid var(--border-color);
+            border-radius: 20px;
+            background-color: #f1f5f9;
         }
 
-        /* 響應式裝置調整 */
+        /* 動畫特效 */
+        @keyframes pop {
+
+            0%,
+            100% {
+                transform: scale(1) rotate(15deg);
+            }
+
+            50% {
+                transform: scale(1.1) rotate(25deg);
+            }
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            background-color: var(--accent-orange);
+            text-align: center;
+            border-top: var(--border-width) solid var(--border-color);
+        }
+
+        footer h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        /* 響應式 */
         @media (max-width: 850px) {
-            .hero {
-                flex-direction: column-reverse; /* 圖片在上，文字在下 */
-                text-align: center;
-                padding: 60px 0;
-            }
-            .hero-content {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            .pill-tags {
-                justify-content: center;
-            }
-            .hero-visual {
-                width: 100%;
-                height: 350px;
-            }
             header {
                 flex-direction: column;
-                gap: 20px;
+                gap: 16px;
+                padding: 16px;
             }
+
             nav {
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 16px;
+                gap: 12px;
             }
+
             nav a {
                 margin-left: 0;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .info-list li {
+                justify-content: center;
+            }
+
+            .split-section {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+
 <body>
 
     <!-- 頂部導航 -->
-    <div class="container">
-        <header>
-            <a href="#" class="logo neo-box bg-green" style="border-radius: 8px;">Hi, Stranger!👋</a>
+    <header>
+        <div class="container"
+            style="display: flex; justify-content: space-between; align-items: center; width: 100%; border: none; padding: 0;">
+            <a href="#" class="logo neo-box bg-yellow" style="border-radius: 8px; padding: 8px 16px;">STUDENT
+                PROFILE</a>
             <nav>
-                <a href="#about">關於我</a>
-                <a href="#projects">專案作品</a>
-                <a href="#contact">聯絡方式</a>
+                <a href="#profile">基本資料</a>
+                <a href="#grades">歷年成績</a>
+                <a href="#honors">興趣及榮譽</a>
+                <a href="#portfolio">學習歷程檔案</a>
             </nav>
-        </header>
+        </div>
+    </header>
 
-        <!-- 主視覺區塊 -->
-        <section class="hero" id="about">
+    <div class="container">
+        <!-- 1. 個人基本資料 -->
+        <section id="profile" class="hero" style="padding-top: 20px;">
             <div class="hero-content">
-                <div class="pill-tags">
-                    <span class="pill bg-yellow">UI/UX 設計師</span>
-                    <span class="pill bg-pink">前端開發者</span>
-                    <span class="pill bg-purple">創意愛好者</span>
-                </div>
-                <h1>創造<br>
-                    <span class="highlight-bg">大膽、好玩</span> 的<br>
-                    <span class="text-outline">數位體驗</span>
+                <h1>嗨，我是<br>
+                    <span class="text-outline">黃小明</span>
                 </h1>
-                <p>你好，我是 WeiJia！我喜歡結合軟性新野獸派的美學與現代網頁技術，將無聊的網頁變成充滿個性的互動樂園。</p>
-                <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
-                    <a href="#projects" class="neo-button bg-blue">查看作品集 👀</a>
-                    <a href="#contact" class="neo-button">索取履歷 📄</a>
+                <p>一位對科技、設計與探索世界充滿熱情的學生。喜歡將天馬行空的創意轉化為實際的作品，不斷學習新技能。</p>
+
+                <ul class="info-list">
+                    <li><span class="info-icon bg-pink">🏫</span>就讀學校：宇宙高中 資訊設計班</li>
+                    <li><span class="info-icon bg-blue">🎂</span>出生年月：2008年 5月</li>
+                    <li><span class="info-icon bg-green">📧</span>聯絡信箱：student@example.com</li>
+                    <li><span class="info-icon bg-orange">🎯</span>未來志向：成為互動設計師 / 前端工程師</li>
+                </ul>
+            </div>
+
+            <div class="hero-visual">
+                <!-- 頭像框代替圖案 -->
+                <div class="profile-pic">👨‍🎓</div>
+                <div class="shape-star">✨</div>
+            </div>
+        </section>
+
+        <!-- 2. 歷年成績 -->
+        <section id="grades">
+            <div class="section-header">
+                <h2 class="section-title">歷年成績 <span
+                        style="background-color: var(--accent-pink); border: 2px solid var(--border-color); border-radius: 12px; padding: 2px 12px; font-size: 1.5rem; vertical-align: middle;">Academic
+                        Records</span></h2>
+            </div>
+
+            <div class="grades-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>學期</th>
+                            <th>國文</th>
+                            <th>英文</th>
+                            <th>數學</th>
+                            <th>自然 / 資訊</th>
+                            <th>學期總排名</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>高一上</strong></td>
+                            <td>88</td>
+                            <td>92</td>
+                            <td>85</td>
+                            <td>95</td>
+                            <td><span class="grade-badge bg-green">前 5%</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>高一下</strong></td>
+                            <td>90</td>
+                            <td>94</td>
+                            <td>88</td>
+                            <td>96</td>
+                            <td><span class="grade-badge bg-yellow">前 3%</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>高二上</strong></td>
+                            <td>92</td>
+                            <td>95</td>
+                            <td>90</td>
+                            <td>98</td>
+                            <td><span class="grade-badge bg-pink">第 1 名</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 3. 興趣及榮譽 -->
+        <section id="honors" class="split-section">
+            <div>
+                <div class="section-header" style="text-align: left;">
+                    <h2 class="section-title" style="font-size: 2rem;">榮譽紀錄 <br><span
+                            style="font-size: 1.2rem; background-color: var(--accent-yellow); padding: 4px 8px; border: 2px solid var(--border-color); border-radius: 8px;">Honors
+                            & Awards</span></h2>
+                </div>
+                <div class="card-list">
+                    <div class="honor-item neo-box bg-purple">
+                        <div class="honor-year">2025</div>
+                        <div class="honor-text">全國高級中等學校 網頁設計比賽 特優</div>
+                    </div>
+                    <div class="honor-item neo-box" style="background-color: #fff;">
+                        <div class="honor-year bg-blue">2024</div>
+                        <div class="honor-text">校內英文演講比賽 第一名</div>
+                    </div>
+                    <div class="honor-item neo-box bg-pink">
+                        <div class="honor-year bg-orange">2024</div>
+                        <div class="honor-text">APCS 大學程式設計先修檢測 觀念 4 / 實作 4</div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="hero-visual">
-                <!-- 幾何組合裝飾 -->
-                <div class="shape shape-main neo-box"></div>
-                <div class="shape shape-circle neo-box bg-yellow"></div>
-                <div class="shape shape-star neo-box bg-pink">✨</div>
+
+            <div>
+                <div class="section-header" style="text-align: left;">
+                    <h2 class="section-title" style="font-size: 2rem;">個人興趣 <br><span
+                            style="font-size: 1.2rem; background-color: var(--accent-green); padding: 4px 8px; border: 2px solid var(--border-color); border-radius: 8px;">Interests
+                            & Hobbies</span></h2>
+                </div>
+                <div class="interests-cloud">
+                    <div class="interest-tag bg-blue">💻 程式開發</div>
+                    <div class="interest-tag bg-pink">🎨 UI/UX 設計</div>
+                    <div class="interest-tag bg-yellow">📸 街頭攝影</div>
+                    <div class="interest-tag" style="background-color: #fff;">🏀 籃球</div>
+                    <div class="interest-tag bg-orange">🎸 吉他彈唱</div>
+                    <div class="interest-tag bg-purple">📚 科幻小說</div>
+                    <div class="interest-tag bg-green">🤖 參與開源專案</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 學習歷程檔案 -->
+        <section id="portfolio">
+            <div class="section-header">
+                <h2 class="section-title">學習歷程檔案 <span
+                        style="background-color: var(--accent-blue); border: 2px solid var(--border-color); border-radius: 12px; padding: 2px 12px; font-size: 1.5rem; vertical-align: middle;">Learning
+                        Portfolio</span></h2>
+            </div>
+
+            <div class="projects-grid">
+                <!-- 檔案 1 -->
+                <div class="project-card neo-box bg-yellow">
+                    <div class="project-img bg-purple">�</div>
+                    <h3>校園垃圾桶分佈地圖 App</h3>
+                    <div class="project-tags">
+                        <span class="ptag">專題實作</span>
+                        <span class="ptag">資訊科技</span>
+                    </div>
+                    <p>為了解決校園垃圾桶難找的問題，使用 React Native 開發的行動應用程式，獲得校內科展佳作。</p>
+                    <a href="#" class="neo-button" style="width: 100%;">查看完整檔案</a>
+                </div>
+
+                <!-- 檔案 2 -->
+                <div class="project-card neo-box" style="background-color: #fff;">
+                    <div class="project-img bg-pink">📝</div>
+                    <h3>探討生成式 AI 對教育的影響</h3>
+                    <div class="project-tags">
+                        <span class="ptag">自主學習</span>
+                        <span class="ptag">小論文</span>
+                    </div>
+                    <p>透過問卷調查與文獻回顧，分析 AI 工具在高中生學習過程中的優勢與隱憂，並提出使用建議。</p>
+                    <a href="#" class="neo-button" style="width: 100%;">查看完整檔案</a>
+                </div>
+
+                <!-- 檔案 3 -->
+                <div class="project-card neo-box bg-green">
+                    <div class="project-img bg-orange">🌍</div>
+                    <h3>模擬聯合國：氣候變遷與減碳政策</h3>
+                    <div class="project-tags">
+                        <span class="ptag">社團活動</span>
+                        <span class="ptag">多元表現</span>
+                    </div>
+                    <p>擔任代表團長，與他校學生進行全英文政策辯論，學習國際視野與團隊協商技巧。</p>
+                    <a href="#" class="neo-button" style="width: 100%;">查看完整檔案</a>
+                </div>
             </div>
         </section>
     </div>
 
-    <!-- 跑馬燈過場 -->
-    <div class="marquee-wrapper">
-        <div class="marquee">
-            ✦ 設計 ✦ 開發 ✦ 創意 ✦ 動態 ✦ 品牌 ✦ 體驗 ✦ 設計 ✦ 開發 ✦ 創意 ✦ 動態 ✦ 品牌 ✦ 體驗 ✦ 設計 ✦ 開發 ✦ 創意 ✦ 動態 ✦ 品牌 ✦ 體驗 ✦
-        </div>
-    </div>
-
-    <!-- 作品集區塊 -->
-    <section id="projects" class="projects">
+    <!-- 頁尾 Footer -->
+    <footer>
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">精選專案 Projects</h2>
-            </div>
-            
-            <div class="grid">
-                <!-- 專案 1 -->
-                <div class="card neo-box bg-pink">
-                    <div class="card-img-placeholder bg-purple">🎨</div>
-                    <h3>設計系統重構</h3>
-                    <p>為新創團隊重新設計品牌視覺與元件庫。採用大膽色彩、粗實邊框與圓潤轉角，徹底提升品牌辨識度與趣味性。</p>
-                    <div class="pill-tags" style="margin-bottom: 24px;">
-                        <span class="pill" style="font-size: 0.8rem; padding: 4px 12px;">Figma</span>
-                        <span class="pill" style="font-size: 0.8rem; padding: 4px 12px;">Design System</span>
-                    </div>
-                    <a href="#" class="neo-button" style="width: 100%;">查看案例案例</a>
-                </div>
-                
-                <!-- 專案 2 -->
-                <div class="card neo-box" style="background-color: #f8fafc;">
-                    <div class="card-img-placeholder bg-blue">💻</div>
-                    <h3>互動式動態儀表板</h3>
-                    <p>開發具高度微互動(Micro-interactions)的數據儀表板，打破傳統報表的沉悶，將複雜數據轉化為色彩豐富的視覺圖表。</p>
-                    <div class="pill-tags" style="margin-bottom: 24px;">
-                        <span class="pill bg-yellow" style="font-size: 0.8rem; padding: 4px 12px;">React</span>
-                        <span class="pill bg-green" style="font-size: 0.8rem; padding: 4px 12px;">CSS Animations</span>
-                    </div>
-                    <a href="#" class="neo-button" style="width: 100%;">查看案例案例</a>
-                </div>
-
-                <!-- 專案 3 -->
-                <div class="card neo-box bg-yellow">
-                    <div class="card-img-placeholder" style="background-color: #ffedd5;">🚀</div>
-                    <h3>品牌行銷活動網站</h3>
-                    <p>利用 Soft Neo-Brutalism 風格，為年度推廣活動製作的一頁式宣傳網頁，創下高於平均 300% 的使用者點擊率與停留時間。</p>
-                    <div class="pill-tags" style="margin-bottom: 24px;">
-                        <span class="pill" style="font-size: 0.8rem; padding: 4px 12px;">Web Design</span>
-                        <span class="pill" style="font-size: 0.8rem; padding: 4px 12px;">HTML/CSS</span>
-                    </div>
-                    <a href="#" class="neo-button" style="width: 100%;">查看案例案例</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 聯絡區塊 (Footer) -->
-    <footer id="contact">
-        <div class="container">
-            <div class="neo-box" style="background-color: #fff; padding: 80px 40px; border-radius: 32px;">
-                <div class="footer-content">
-                    <h2>準備好開始<br>下一個有趣的計畫了嗎？</h2>
-                    <p style="font-size: 1.2rem; margin-bottom: 40px; font-weight: 700;">目前開放接案中！隨時歡迎聊聊你的點子。</p>
-                    
-                    <a href="mailto:hello@example.com" class="neo-button cta-button bg-yellow">
-                        聯絡我 📧
-                    </a>
-
-                    <div class="social-links">
-                        <a href="#" class="bg-blue">Ig</a>
-                        <a href="#" class="bg-purple">Be</a>
-                        <a href="#" class="bg-green">In</a>
-                    </div>
-                </div>
-                
-                <div class="copyright">
-                    © 2026 Creative Portfolio. Crafted with ❤️ & Neo-Brutalism.
-                </div>
+            <h2>Let's Connect !</h2>
+            <p style="font-weight: 700; font-size: 1.2rem; margin-bottom: 24px;">對我的歷程有興趣，或是想交流心得，都歡迎聯絡我喔！</p>
+            <div
+                style="font-weight: 800; font-size: 1.1rem; padding: 12px 24px; border: 2px solid var(--border-color); border-radius: 30px; display: inline-block; background-color: #fff; box-shadow: 4px 4px 0px var(--border-color);">
+                © 2026 Student Portfolio. Designed with Neo-Brutalism.
             </div>
         </div>
     </footer>
 
 </body>
+
 </html>
